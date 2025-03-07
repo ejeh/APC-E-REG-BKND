@@ -37,7 +37,7 @@ let UsersController = class UsersController {
         try {
             const updatedData = { ...body };
             if (file) {
-                updatedData.passportPhoto = `http://localhost:5000/uploads/${file.filename}`;
+                updatedData.passportPhoto = `https://e-registration-1i0c.onrender.com/uploads/${file.filename}`;
             }
             const user = await this.userService.userModel.findByIdAndUpdate(id, updatedData, { new: true });
             if (!user) {

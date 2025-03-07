@@ -89,7 +89,7 @@ export class UsersController {
     try {
       const updatedData: any = { ...body };
       if (file) {
-        updatedData.passportPhoto = `http://localhost:5000/uploads/${file.filename}`;
+        updatedData.passportPhoto = `https://e-registration-1i0c.onrender.com/uploads/${file.filename}`;
         // updatedData.passportPhoto = `https://identity-management-af43.onrender.com/uploads/${file.filename}`;
       }
 
