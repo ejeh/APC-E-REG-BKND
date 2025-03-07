@@ -45,15 +45,15 @@ export class UsersService {
         role,
         origin,
         password: await hashPassword(password),
-        activationToken: uuid(),
-        activationExpires: Date.now() + config.auth.activationExpireInMs,
+        // activationToken: uuid(),
+        // activationExpires: Date.now() + config.auth.activationExpireInMs,
       });
-      this.userMailer.sendActivationMail(
-        user.email,
-        user.id,
-        user.activationToken,
-        origin,
-      );
+      // this.userMailer.sendActivationMail(
+      //   user.email,
+      //   user.id,
+      //   user.activationToken,
+      //   origin,
+      // );
 
       return user;
     } catch (error) {
@@ -77,6 +77,16 @@ export class UsersService {
     if (!user) {
       throw UserNotFoundException();
     }
+    return user;
+  }
+
+  async findAdminByEmail(email: string): Promise<UserDocument> {
+    const user = await this.userModel.findOne(
+      { email: email.toLowerCase() },
+      // {password: 0}
+      '+password',
+    );
+
     return user;
   }
 
@@ -108,31 +118,31 @@ export class UsersService {
     return user;
   }
 
-  async resendActivationEmail(email: string) {
-    const user = await this.userModel.findOne({ email });
-    // Generate a new activation token (or reuse the old one)
-    const activationToken =
-      user.activationToken || Math.random().toString(36).substr(2, 10);
-    user.activationToken = activationToken;
-    await user.save();
+  // async resendActivationEmail(email: string) {
+  //   const user = await this.userModel.findOne({ email });
+  //   // Generate a new activation token (or reuse the old one)
+  //   const activationToken =
+  //     user.activationToken || Math.random().toString(36).substr(2, 10);
+  //   user.activationToken = activationToken;
+  //   await user.save();
 
-    // Send email with activation link
-    //  await this.mailerService.sendMail({
-    //    to: user.email,
-    //    subject: 'Activate Your Account',
-    //    html: `<p>Click <a href="http://yourdomain.com/auth/activate?token=${activationToken}">here</a> to activate your account.</p>`,
-    //  });
+  //   // Send email with activation link
+  //   //  await this.mailerService.sendMail({
+  //   //    to: user.email,
+  //   //    subject: 'Activate Your Account',
+  //   //    html: `<p>Click <a href="http://yourdomain.com/auth/activate?token=${activationToken}">here</a> to activate your account.</p>`,
+  //   //  });
 
-    this.userMailer.sendActivationMail(
-      user.email,
-      user.id,
-      user.activationToken,
-      origin,
-    );
-    return { success: true, message: 'Activation email sent successfully' };
+  //   this.userMailer.sendActivationMail(
+  //     user.email,
+  //     user.id,
+  //     user.activationToken,
+  //     origin,
+  //   );
+  //   return { success: true, message: 'Activation email sent successfully' };
 
-    // return user;
-  }
+  //   // return user;
+  // }
 
   async forgottenPassword(email: string, origin: string) {
     const user = await this.userModel.findOneAndUpdate(

@@ -38,29 +38,30 @@ export class AuthController {
   async activate(@Param() params: ActivateParams, @Res() res: Response) {
     // return this.authService.activate(params);
     const result = await this.authService.activate(params);
+    console.log(result);
     if (result.success) {
-      // return res.redirect('http://127.0.0.1:5501/auth/activation-success.html');
-      return res.redirect(
-        'https://bscr-mis-ui.onrender.com/auth/activation-success.html',
-      );
+      return res.redirect('http://127.0.0.1:5502/auth/activation-success.html');
+      // return res.redirect(
+      //   'https://bscr-mis-ui.onrender.com/auth/activation-success.html',
+      // );
     } else {
-      // return res.redirect(`http://127.0.0.1:5501/auth/activation-failed.html`);
-      return res.redirect(
-        `https://bscr-mis-ui.onrender.com/auth/activation-failed.html`,
-      );
+      return res.redirect(`http://127.0.0.1:5502/auth/activation-failed.html`);
+      // return res.redirect(
+      //   `https://bscr-mis-ui.onrender.com/auth/activation-failed.html`,
+      // );
     }
   }
 
-  @Post('resend-activation')
-  async resendActivationEmail(
-    @Body('email') email: string,
-    @Req() req: Request,
-  ) {
-    return await this.authService.resendActivationEmail(
-      email,
-      getOriginHeader(req),
-    );
-  }
+  // @Post('resend-activation')
+  // async resendActivationEmail(
+  //   @Body('email') email: string,
+  //   @Req() req: Request,
+  // ) {
+  //   return await this.authService.resendActivationEmail(
+  //     email,
+  //     getOriginHeader(req),
+  //   );
+  // }
 
   @Post('signup')
   @ApiResponse({ type: AuthenticatedUser })

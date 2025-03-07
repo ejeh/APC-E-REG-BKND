@@ -37,13 +37,6 @@ const mongoose_1 = require("@nestjs/mongoose");
 const mongoose = __importStar(require("mongoose"));
 const swagger_1 = require("@nestjs/swagger");
 const users_role_enum_1 = require("./users.role.enum");
-const users_next_of_kin_schema_1 = require("./users.next-of-kin.schema");
-const users_emploment_schema_1 = require("./users.emploment.schema");
-const users_business_schema_1 = require("./users.business.schema");
-const users_education_schema_1 = require("./users.education.schema");
-const users_health_schema_1 = require("./users.health.schema");
-const users_neigbour_schema_1 = require("./users.neigbour.schema");
-const users_family_schema_1 = require("./users.family.schema");
 let User = class User {
 };
 exports.User = User;
@@ -59,14 +52,23 @@ __decorate([
 ], User.prototype, "firstname", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
+    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
+    __metadata("design:type", String)
+], User.prototype, "middlename", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    (0, mongoose_1.Prop)({
+        type: mongoose.SchemaTypes.String,
+        required: true,
+        unique: true,
+    }),
+    __metadata("design:type", String)
+], User.prototype, "phone", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
     (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: true }),
     __metadata("design:type", String)
 ], User.prototype, "lastname", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, require: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "middlename", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
     (0, mongoose_1.Prop)({ default: false }),
@@ -81,131 +83,12 @@ __decorate([
     (0, swagger_1.ApiProperty)(),
     (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
     __metadata("design:type", String)
-], User.prototype, "maritalStatus", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
 ], User.prototype, "gender", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "nationality", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "stateOfOrigin", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "lgaOfOrigin", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "stateOfResidence", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "lgaOfResidence", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "house_number", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "street_name", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "nearest_bus_stop_landmark", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "city_town", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "countryOfResidence", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "identification", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "id_number", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "issue_date", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "expiry_date", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
     (0, mongoose_1.Prop)({ required: false }),
     __metadata("design:type", String)
 ], User.prototype, "passportPhoto", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: [users_next_of_kin_schema_1.NextOfKinSchema], required: false, default: null }),
-    __metadata("design:type", Array)
-], User.prototype, "nextOfKin", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: [users_emploment_schema_1.EmploymentHistorySchema], required: false, default: null }),
-    __metadata("design:type", Array)
-], User.prototype, "employmentHistory", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: [users_business_schema_1.BusinessSchema], required: false, default: null }),
-    __metadata("design:type", Array)
-], User.prototype, "business", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: users_education_schema_1.EducationalHistorySchema, required: false, default: null }),
-    __metadata("design:type", users_education_schema_1.EducationalHistory)
-], User.prototype, "educationalHistory", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: [users_health_schema_1.HealthInfoSchema], required: false, default: null }),
-    __metadata("design:type", Array)
-], User.prototype, "healthInfo", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: [users_neigbour_schema_1.NeighborSchema], required: false, default: null }),
-    __metadata("design:type", Array)
-], User.prototype, "neighbor", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: [users_family_schema_1.FamilySchema], required: false, default: null }),
-    __metadata("design:type", Array)
-], User.prototype, "family", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({
-        type: mongoose.SchemaTypes.String,
-        required: true,
-        unique: true,
-    }),
-    __metadata("design:type", String)
-], User.prototype, "phone", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
     (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: true, unique: true }),
@@ -219,16 +102,6 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], User.prototype, "role", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
-    __metadata("design:type", String)
-], User.prototype, "religion", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false }),
-    __metadata("design:type", String)
-], User.prototype, "community", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
     (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: true }),
@@ -246,14 +119,26 @@ __decorate([
 ], User.prototype, "passwordResetToken", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String }),
+    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
     __metadata("design:type", String)
-], User.prototype, "activationToken", void 0);
+], User.prototype, "voters_card_no", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String }),
-    __metadata("design:type", Date)
-], User.prototype, "activationExpires", void 0);
+    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
+    __metadata("design:type", String)
+], User.prototype, "polling_unit", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: false, default: null }),
+    __metadata("design:type", String)
+], User.prototype, "reg_area", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: false, default: null }),
+    __metadata("design:type", String)
+], User.prototype, "membership_no", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: false, default: null }),
+    __metadata("design:type", String)
+], User.prototype, "membership_status", void 0);
 exports.User = User = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: {

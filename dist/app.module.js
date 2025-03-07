@@ -48,6 +48,7 @@ const indigene_certificate_module_1 = require("./indigene-certificate/indigene-c
 const idcard_module_1 = require("./idcard/idcard.module");
 const serve_static_2 = require("@nestjs/serve-static");
 const path_1 = require("path");
+const transaction_module_1 = require("./transaction/transaction.module");
 const DEV_TRANSPORTER = {
     host: 'smtp-relay.sendinblue.com',
     port: 587,
@@ -107,6 +108,7 @@ exports.AppModule = AppModule = __decorate([
             auth_module_1.AuthModule,
             indigene_certificate_module_1.IndigeneCertificateModule,
             idcard_module_1.IdcardModule,
+            transaction_module_1.TransactionModule,
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

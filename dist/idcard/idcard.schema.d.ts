@@ -10,14 +10,11 @@ export declare class IdCard extends Document {
     resubmissionAllowed: boolean;
     resubmissionAttempts: number;
     downloaded: Boolean;
-    card_type: string;
     dateOfIssue: Date;
     dateOfExpiration: Date;
-    ref_letter: string;
-    utilityBill: string;
-    phone: number;
     qrCodeUrl?: string;
-    bin?: string;
+    cardNo?: string;
+    phone: string;
 }
 export declare const IdCardSchema: mongoose.Schema<IdCard, mongoose.Model<IdCard, any, any, any, mongoose.Document<unknown, any, IdCard> & IdCard & Required<{
     _id: unknown;

@@ -161,7 +161,7 @@ export class IdcardController {
       const date = new Date(user.DOB);
       const formattedDOB = date.toISOString().split('T')[0]; // Extracts YYYY-MM-DD
 
-      const qrCodeData = `Name: ${user.firstname} ${user.middlename} ${user.lastname} | BIN: ${card.bin} | DOB: ${formattedDOB} | Sex: ${user.gender}`;
+      const qrCodeData = `Name: ${user.firstname} ${user.middlename} ${user.lastname} | BIN: ${card.cardNo} | DOB: ${formattedDOB} | Sex: ${user.gender}`;
 
       const qrCodeUrl = await this.generateQrCode(qrCodeData); // Generate QR code URL
       card.qrCodeUrl = qrCodeUrl; // Save the QR code URL in the card

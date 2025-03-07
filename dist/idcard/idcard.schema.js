@@ -95,11 +95,6 @@ __decorate([
     __metadata("design:type", Boolean)
 ], IdCard.prototype, "downloaded", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)(),
-    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String }),
-    __metadata("design:type", String)
-], IdCard.prototype, "card_type", void 0);
-__decorate([
     (0, mongoose_1.Prop)({ required: true, default: new Date().toISOString() }),
     __metadata("design:type", Date)
 ], IdCard.prototype, "dateOfIssue", void 0);
@@ -110,11 +105,11 @@ __decorate([
 __decorate([
     (0, mongoose_1.Prop)({ required: false, default: null }),
     __metadata("design:type", String)
-], IdCard.prototype, "ref_letter", void 0);
+], IdCard.prototype, "qrCodeUrl", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: false, default: null }),
     __metadata("design:type", String)
-], IdCard.prototype, "utilityBill", void 0);
+], IdCard.prototype, "cardNo", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
     (0, mongoose_1.Prop)({
@@ -122,16 +117,8 @@ __decorate([
         required: true,
         unique: true,
     }),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], IdCard.prototype, "phone", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ required: false, default: null }),
-    __metadata("design:type", String)
-], IdCard.prototype, "qrCodeUrl", void 0);
-__decorate([
-    (0, mongoose_1.Prop)({ required: false, default: null }),
-    __metadata("design:type", String)
-], IdCard.prototype, "bin", void 0);
 exports.IdCard = IdCard = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: {

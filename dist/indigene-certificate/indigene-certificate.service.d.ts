@@ -48,4 +48,5 @@ export declare class IndigeneCertificateService {
     }>;
     generateCertificatePDF(id: string, html: string): Promise<string>;
     deleteItem: (item_id: string) => Promise<any>;
+    findByIds(ids: string[]): Promise<any[]>;
 }

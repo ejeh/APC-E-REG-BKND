@@ -86,30 +86,11 @@ export class UsersController {
     @Body(new ParseJSONPipe()) body: UpdateProfileDto,
     @UploadedFile() file: Express.Multer.File,
   ) {
-    // Parse educationalHistory if it's a string
-    if (typeof body.educationalHistory === 'string') {
-      try {
-        const parsedEducationalHistory = JSON.parse(body.educationalHistory);
-        body = { ...body, educationalHistory: parsedEducationalHistory };
-      } catch (error) {
-        throw new BadRequestException('Invalid educationalHistory format.');
-      }
-    }
-
-    // Parse educationalHistory if it's a string
-    if (typeof body.employmentHistory === 'string') {
-      try {
-        const parsedEmploymentHistory = JSON.parse(body.employmentHistory);
-        body = { ...body, employmentHistory: parsedEmploymentHistory };
-      } catch (error) {
-        throw new BadRequestException('Invalid employmentHistory format.');
-      }
-    }
     try {
       const updatedData: any = { ...body };
       if (file) {
-        // updatedData.passportPhoto = `http://localhost:5000/uploads/${file.filename}`;
-        updatedData.passportPhoto = `https://identity-management-af43.onrender.com/uploads/${file.filename}`;
+        updatedData.passportPhoto = `http://localhost:5000/uploads/${file.filename}`;
+        // updatedData.passportPhoto = `https://identity-management-af43.onrender.com/uploads/${file.filename}`;
       }
 
       const user = await this.userService.userModel.findByIdAndUpdate(

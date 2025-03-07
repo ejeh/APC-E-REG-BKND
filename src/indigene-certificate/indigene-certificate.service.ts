@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { Response } from 'express';
 import { Certificate } from './indigene-certicate.schema';
 import { UserNotFoundException } from 'src/common/exception';
@@ -307,4 +307,14 @@ export class IndigeneCertificateService {
   deleteItem = async (item_id: string): Promise<any> => {
     return await this.certificateModel.deleteOne({ _id: item_id });
   };
+
+  // fetch items by their IDs
+  // async findByIds(ids: string[]): Promise<Certificate[]> {
+  //   return this.certificateModel.find({ _id: { $in: ids } }).exec();
+  // }
+  async findByIds(ids: string[]): Promise<any[]> {
+    const objectIds = ids.map((id) => new Types.ObjectId(id));
+    console.log(objectIds);
+    return this.certificateModel.find({ _id: { $in: objectIds } }).exec();
+  }
 }

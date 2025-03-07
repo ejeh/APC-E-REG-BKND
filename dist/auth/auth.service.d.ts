@@ -22,10 +22,6 @@ export declare class AuthService {
         token: string;
         user: import("../users/users.dto").UserPublicData;
     }>;
-    resendActivationEmail(email: string, origin: string): Promise<{
-        success: boolean;
-        message: string;
-    }>;
     signUpUser(userData: SignUpDto, origin: string, role: string): Promise<{
         token: string;
         user: import("../users/users.dto").UserPublicData;

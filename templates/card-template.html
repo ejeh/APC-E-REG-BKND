@@ -22,7 +22,7 @@
       .id-card-container {
         width: 85.6mm; /* Standard ID card width */
         height: 54mm; /* Standard ID card height */
-        background: #fff;
+        /* background: #fff; */
         border: 1px solid #000;
         border-radius: 5px;
         display: flex;
@@ -30,6 +30,12 @@
         position: relative;
         overflow: hidden; /* Prevents content overflow */
         padding: 2mm;
+        background: url('http://localhost:5000/images/id-bg.jpg') no-repeat
+          center;
+        background-size: 100% 100%;
+        box-sizing: border-box;
+        justify-content: space-between;
+        text-transform: capitalize;
       }
       .header {
         text-align: center;
@@ -101,7 +107,7 @@
     <div class="id-card-container">
       <div class="header">
         Federal Republic Of Nigeria <br />
-        <span> Digital BIN Slip </span>
+        <span> Digital APC Card </span>
       </div>
       <div class="content">
         <div class="left-section">

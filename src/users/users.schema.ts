@@ -4,19 +4,6 @@ import { UserPublicData } from './users.dto';
 import { ApiProperty } from '@nestjs/swagger';
 import { Document } from 'mongoose';
 import { UserRole } from './users.role.enum';
-import { NextOfKin, NextOfKinSchema } from './users.next-of-kin.schema';
-import {
-  EmploymentHistory,
-  EmploymentHistorySchema,
-} from './users.emploment.schema';
-import { Business, BusinessSchema } from './users.business.schema';
-import {
-  EducationalHistory,
-  EducationalHistorySchema,
-} from './users.education.schema';
-import { HealthInfo, HealthInfoSchema } from './users.health.schema';
-import { Neighbor, NeighborSchema } from './users.neigbour.schema';
-import { Family, FamilySchema } from './users.family.schema';
 
 export type UserMethods = {
   getPublicData: () => UserPublicData;
@@ -40,12 +27,20 @@ export class User {
   firstname: string;
 
   @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: true })
-  lastname: string;
+  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
+  middlename?: string;
 
   @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, require: false, default: null })
-  middlename?: string;
+  @Prop({
+    type: mongoose.SchemaTypes.String,
+    required: true,
+    unique: true,
+  })
+  phone: string;
+
+  @ApiProperty()
+  @Prop({ type: mongoose.SchemaTypes.String, required: true })
+  lastname: string;
 
   @ApiProperty()
   @Prop({ default: false })
@@ -57,107 +52,11 @@ export class User {
 
   @ApiProperty()
   @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  maritalStatus?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
   gender?: string;
 
   @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  nationality?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  stateOfOrigin?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  lgaOfOrigin?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  stateOfResidence?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  lgaOfResidence?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  house_number?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  street_name?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  nearest_bus_stop_landmark?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  city_town?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  countryOfResidence?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  identification?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  id_number?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  issue_date?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  expiry_date?: string;
-
-  @ApiProperty()
   @Prop({ required: false })
-  passportPhoto: string; // File path or URL
-
-  @ApiProperty()
-  @Prop({ type: [NextOfKinSchema], required: false, default: null }) // Embed the next-of-kin schema
-  nextOfKin?: NextOfKin[];
-
-  @ApiProperty()
-  @Prop({ type: [EmploymentHistorySchema], required: false, default: null }) // Embed the next-of-kin schema
-  employmentHistory?: EmploymentHistory[]; // Array of employment histories
-
-  @ApiProperty()
-  @Prop({ type: [BusinessSchema], required: false, default: null }) // Embed the next-of-kin schema
-  business?: Business[];
-
-  @ApiProperty()
-  @Prop({ type: EducationalHistorySchema, required: false, default: null }) // Embed the next-of-kin schema
-  educationalHistory?: EducationalHistory;
-
-  @ApiProperty()
-  @Prop({ type: [HealthInfoSchema], required: false, default: null }) // Embed the next-of-kin schema
-  healthInfo?: HealthInfo[];
-
-  @ApiProperty()
-  @Prop({ type: [NeighborSchema], required: false, default: null }) // Embed the next-of-kin schema
-  neighbor?: Neighbor[];
-
-  @ApiProperty()
-  @Prop({ type: [FamilySchema], required: false, default: null }) // Embed the next-of-kin schema
-  family?: Family[];
-
-  @ApiProperty()
-  @Prop({
-    type: mongoose.SchemaTypes.String,
-    required: true,
-    unique: true,
-  })
-  phone: string;
+  passportPhoto?: string; // File path or URL
 
   @ApiProperty()
   @Prop({ type: mongoose.SchemaTypes.String, required: true, unique: true })
@@ -171,14 +70,6 @@ export class User {
   role?: UserRole;
 
   @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
-  religion?: string;
-
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String, required: false })
-  community?: string;
-
-  @ApiProperty()
   @Prop({ type: mongoose.SchemaTypes.String, required: true })
   password: string;
 
@@ -190,13 +81,30 @@ export class User {
   @Prop({ type: mongoose.SchemaTypes.String })
   passwordResetToken: string;
 
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String })
-  activationToken: string;
+  // @ApiProperty()
+  // @Prop({ type: mongoose.SchemaTypes.String })
+  // activationToken: string;
+
+  // @ApiProperty()
+  // @Prop({ type: mongoose.SchemaTypes.String })
+  // activationExpires: Date;
 
   @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String })
-  activationExpires: Date;
+  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
+  voters_card_no?: string;
+
+  @ApiProperty()
+  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
+  polling_unit?: string;
+
+  @Prop({ required: false, default: null })
+  reg_area?: string; // URL for the QR code
+
+  @Prop({ required: false, default: null })
+  membership_no?: string; // URL for the QR code
+
+  @Prop({ required: false, default: null })
+  membership_status?: string; // URL for the QR code
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

@@ -12,6 +12,7 @@ const swagger_1 = require("./common/swagger");
 const app_module_1 = require("./app.module");
 const path_1 = require("path");
 const config_1 = __importDefault(require("./config"));
+const users_service_1 = require("./users/users.service");
 const configureApp = (app) => {
     app.use((req, res, next) => {
         next();
@@ -30,6 +31,7 @@ exports.configureApp = configureApp;
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.useStaticAssets((0, path_1.join)(__dirname, '..', 'public'));
+    const usersService = app.get(users_service_1.UsersService);
     (0, exports.configureApp)(app);
     (0, swagger_1.setupSwaggerDocuments)(app);
     await app.listen(config_1.default.port);

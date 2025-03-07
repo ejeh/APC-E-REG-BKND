@@ -55,10 +55,6 @@ export class IdCard extends Document {
   @Prop({ default: false })
   downloaded: Boolean;
 
-  @ApiProperty()
-  @Prop({ type: mongoose.SchemaTypes.String })
-  card_type: string;
-
   @Prop({ required: true, default: new Date().toISOString() })
   dateOfIssue: Date;
 
@@ -66,10 +62,10 @@ export class IdCard extends Document {
   dateOfExpiration: Date;
 
   @Prop({ required: false, default: null })
-  ref_letter: string; // URL for the signed attestation letter
+  qrCodeUrl?: string; // URL for the QR code
 
   @Prop({ required: false, default: null })
-  utilityBill: string; // URL for the signed attestation letter
+  cardNo?: string; // URL for the QR code
 
   @ApiProperty()
   @Prop({
@@ -77,13 +73,7 @@ export class IdCard extends Document {
     required: true,
     unique: true,
   })
-  phone: number;
-
-  @Prop({ required: false, default: null })
-  qrCodeUrl?: string; // URL for the QR code
-
-  @Prop({ required: false, default: null })
-  bin?: string; // URL for the QR code
+  phone: string;
 }
 
 export const IdCardSchema = SchemaFactory.createForClass(IdCard);

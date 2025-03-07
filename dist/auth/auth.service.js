@@ -11,9 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
@@ -25,8 +22,6 @@ const exception_1 = require("../common/exception");
 const mongoose_1 = require("mongoose");
 const users_mailer_service_1 = require("../users/users.mailer.service");
 const mongoose_2 = require("@nestjs/mongoose");
-const uuid_1 = require("uuid");
-const config_1 = __importDefault(require("../config"));
 let AuthService = class AuthService {
     constructor(userModel, userMailer, usersService, jwtService) {
         this.userModel = userModel;
@@ -53,21 +48,6 @@ let AuthService = class AuthService {
             user: user.getPublicData(),
         };
     }
-    async resendActivationEmail(email, origin) {
-        const user = await this.userModel.findOne({ email });
-        if (!user) {
-            return { success: false, message: 'User not found' };
-        }
-        if (user.isActive) {
-            return { success: false, message: 'Account is already activated' };
-        }
-        const activationToken = user.activationToken || (0, uuid_1.v4)();
-        user.activationToken = activationToken;
-        (user.activationExpires = new Date(Date.now() + config_1.default.auth.activationExpireInMs)),
-            await user.save();
-        this.userMailer.sendActivationMail(user.email, user.id, user.activationToken, origin);
-        return { success: true, message: 'Activation email sent successfully' };
-    }
     async signUpUser(userData, origin, role) {
         const user = await this.usersService.create(userData.firstname, userData.lastname, userData.email, userData.password, userData.phone, userData.NIN, role, origin);
         return {
@@ -76,9 +56,6 @@ let AuthService = class AuthService {
         };
     }
     async login(user) {
-        if (!user.isActive) {
-            throw new common_1.UnauthorizedException('Account is not activated. Please check your email for activation instructions.');
-        }
         return {
             token: this.jwtService.sign({ ...user?.getPublicData() }, { subject: `${user?.id}` }),
             user: user?.getPublicData(),

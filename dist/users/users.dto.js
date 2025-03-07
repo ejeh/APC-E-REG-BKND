@@ -42,51 +42,7 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UserPublicData.prototype, "community", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "religion", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "stateOfOrigin", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "email", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "nationality", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
 ], UserPublicData.prototype, "gender", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "maritalStatus", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "nextOfKin", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "employmentHistory", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "business", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "educationalHistory", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "healthInfo", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
@@ -98,55 +54,23 @@ __decorate([
 __decorate([
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UserPublicData.prototype, "house_number", void 0);
+], UserPublicData.prototype, "membership_no", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UserPublicData.prototype, "street_name", void 0);
+], UserPublicData.prototype, "voters_card_no", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UserPublicData.prototype, "nearest_bus_stop_landmark", void 0);
+], UserPublicData.prototype, "polling_unit", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UserPublicData.prototype, "city_town", void 0);
+], UserPublicData.prototype, "reg_area", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UserPublicData.prototype, "countryOfResidence", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "identification", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "id_number", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "issue_date", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "expiry_date", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "TIN", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "stateOfResidence", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "lgaOfResidence", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UserPublicData.prototype, "lgaOfOrigin", void 0);
+], UserPublicData.prototype, "membership_status", void 0);
 class UpdateProfileDto {
 }
 exports.UpdateProfileDto = UpdateProfileDto;
@@ -167,79 +91,7 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UpdateProfileDto.prototype, "community", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "religion", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
 ], UpdateProfileDto.prototype, "middlename", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "house_number", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "maritalStatus", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "lgaOfOrigin", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "stateOfOrigin", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "street_name", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "nearest_bus_stop_landmark", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "city_town", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "countryOfResidence", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "address", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "nationality", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, swagger_1.ApiProperty)({}),
@@ -255,67 +107,28 @@ __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UpdateProfileDto.prototype, "nextOfKin", void 0);
+], UpdateProfileDto.prototype, "reg_area", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UpdateProfileDto.prototype, "employmentHistory", void 0);
+], UpdateProfileDto.prototype, "membership_no", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UpdateProfileDto.prototype, "business", void 0);
+], UpdateProfileDto.prototype, "polling_unit", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UpdateProfileDto.prototype, "neighbor", void 0);
+], UpdateProfileDto.prototype, "voters_card_no", void 0);
 __decorate([
+    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsOptional)(),
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
-], UpdateProfileDto.prototype, "educationalHistory", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "healthInfo", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "family", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "identification", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "id_number", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "issue_date", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "expiry_date", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "stateOfResidence", void 0);
-__decorate([
-    (0, class_validator_1.IsOptional)(),
-    (0, swagger_1.ApiProperty)({}),
-    __metadata("design:type", String)
-], UpdateProfileDto.prototype, "lgaOfResidence", void 0);
+], UpdateProfileDto.prototype, "membership_status", void 0);
 class UpdateUserRoleDto {
 }
 exports.UpdateUserRoleDto = UpdateUserRoleDto;

@@ -20,6 +20,7 @@ const users_service_1 = require("../users/users.service");
 const auth_interface_1 = require("./auth.interface");
 const auth_1 = require("./auth");
 const passport_1 = require("@nestjs/passport");
+const inspector_1 = require("inspector");
 let AuthController = class AuthController {
     constructor(authService, userService) {
         this.authService = authService;
@@ -27,15 +28,13 @@ let AuthController = class AuthController {
     }
     async activate(params, res) {
         const result = await this.authService.activate(params);
+        inspector_1.console.log(result);
         if (result.success) {
-            return res.redirect('https://bscr-mis-ui.onrender.com/auth/activation-success.html');
+            return res.redirect('http://127.0.0.1:5502/auth/activation-success.html');
         }
         else {
-            return res.redirect(`https://bscr-mis-ui.onrender.com/auth/activation-failed.html`);
+            return res.redirect(`http://127.0.0.1:5502/auth/activation-failed.html`);
         }
-    }
-    async resendActivationEmail(email, req) {
-        return await this.authService.resendActivationEmail(email, (0, auth_1.getOriginHeader)(req));
     }
     signup(signUpDto, req) {
         return this.authService.signUpUser(signUpDto, (0, auth_1.getOriginHeader)(req), 'user');
@@ -59,14 +58,6 @@ __decorate([
     __metadata("design:paramtypes", [auth_interface_1.ActivateParams, Object]),
     __metadata("design:returntype", Promise)
 ], AuthController.prototype, "activate", null);
-__decorate([
-    (0, common_1.Post)('resend-activation'),
-    __param(0, (0, common_1.Body)('email')),
-    __param(1, (0, common_1.Req)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
-    __metadata("design:returntype", Promise)
-], AuthController.prototype, "resendActivationEmail", null);
 __decorate([
     (0, common_1.Post)('signup'),
     (0, swagger_1.ApiResponse)({ type: auth_interface_1.AuthenticatedUser }),

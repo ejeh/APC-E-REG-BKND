@@ -13,8 +13,8 @@ export class UserMailerService {
     activationToken: string,
     origin: string,
   ) {
-    // const activationUrl = `http://localhost:5000/api/auth/activate/${userId}/${activationToken}\n`;
-    const activationUrl = `https://identity-management-af43.onrender.com/api/auth/activate/${userId}/${activationToken}\n`;
+    const activationUrl = `http://localhost:5000/api/auth/activate/${userId}/${activationToken}\n`;
+    // const activationUrl = `https://identity-management-af43.onrender.com/api/auth/activate/${userId}/${activationToken}\n`;
 
     if (!config.isTest()) {
       console.log(origin);

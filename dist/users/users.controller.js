@@ -34,28 +34,10 @@ let UsersController = class UsersController {
         return await this.userService.userModel.find({});
     }
     async updateUserProfile(id, body, file) {
-        if (typeof body.educationalHistory === 'string') {
-            try {
-                const parsedEducationalHistory = JSON.parse(body.educationalHistory);
-                body = { ...body, educationalHistory: parsedEducationalHistory };
-            }
-            catch (error) {
-                throw new common_1.BadRequestException('Invalid educationalHistory format.');
-            }
-        }
-        if (typeof body.employmentHistory === 'string') {
-            try {
-                const parsedEmploymentHistory = JSON.parse(body.employmentHistory);
-                body = { ...body, employmentHistory: parsedEmploymentHistory };
-            }
-            catch (error) {
-                throw new common_1.BadRequestException('Invalid employmentHistory format.');
-            }
-        }
         try {
             const updatedData = { ...body };
             if (file) {
-                updatedData.passportPhoto = `https://identity-management-af43.onrender.com/uploads/${file.filename}`;
+                updatedData.passportPhoto = `http://localhost:5000/uploads/${file.filename}`;
             }
             const user = await this.userService.userModel.findByIdAndUpdate(id, updatedData, { new: true });
             if (!user) {

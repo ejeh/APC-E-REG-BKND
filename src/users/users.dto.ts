@@ -21,40 +21,7 @@ export class UserPublicData {
   phone: number;
 
   @ApiProperty({})
-  community: string;
-
-  @ApiProperty({})
-  religion: string;
-
-  @ApiProperty({})
-  stateOfOrigin: string;
-
-  @ApiProperty({})
-  email: string;
-
-  @ApiProperty({})
-  nationality: string;
-
-  @ApiProperty({})
   gender: string;
-
-  @ApiProperty({})
-  maritalStatus: string;
-
-  @ApiProperty({})
-  nextOfKin: string;
-
-  @ApiProperty({})
-  employmentHistory: string;
-
-  @ApiProperty({})
-  business: string;
-
-  @ApiProperty({})
-  educationalHistory: string;
-
-  @ApiProperty({})
-  healthInfo: string;
 
   @ApiProperty({})
   role: string;
@@ -63,43 +30,19 @@ export class UserPublicData {
   NIN: number;
 
   @ApiProperty({})
-  house_number: string;
+  membership_no: string;
 
   @ApiProperty({})
-  street_name: string;
+  voters_card_no: string;
 
   @ApiProperty({})
-  nearest_bus_stop_landmark: string;
+  polling_unit: string;
 
   @ApiProperty({})
-  city_town: string;
+  reg_area: string;
 
   @ApiProperty({})
-  countryOfResidence: string;
-
-  @ApiProperty({})
-  identification: string;
-
-  @ApiProperty({})
-  id_number: string;
-
-  @ApiProperty({})
-  issue_date: string;
-
-  @ApiProperty({})
-  expiry_date: string;
-
-  @ApiProperty({})
-  TIN: string;
-
-  @ApiProperty({})
-  stateOfResidence: string;
-
-  @ApiProperty({})
-  lgaOfResidence: string;
-
-  @ApiProperty({})
-  lgaOfOrigin: string;
+  membership_status: string;
 }
 
 export class UpdateProfileDto {
@@ -116,67 +59,7 @@ export class UpdateProfileDto {
   @IsString()
   @IsOptional()
   @ApiProperty({})
-  readonly community?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly religion?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
   readonly middlename?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly house_number?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly maritalStatus?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly lgaOfOrigin?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly stateOfOrigin?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly street_name?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly nearest_bus_stop_landmark?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly city_town?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly countryOfResidence?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly address?: string;
-
-  @IsString()
-  @IsOptional()
-  @ApiProperty({})
-  readonly nationality?: string;
 
   // @IsString()
   @IsOptional()
@@ -190,55 +73,24 @@ export class UpdateProfileDto {
 
   @IsOptional()
   @ApiProperty({})
-  readonly nextOfKin?: string;
+  readonly reg_area?: string;
 
   @IsOptional()
   @ApiProperty({})
-  readonly employmentHistory?: string;
+  readonly membership_no?: string;
 
   @IsOptional()
   @ApiProperty({})
-  readonly business?: string;
+  readonly polling_unit?: string;
 
   @IsOptional()
   @ApiProperty({})
-  readonly neighbor?: string;
+  readonly voters_card_no?: string;
 
+  @IsString()
   @IsOptional()
   @ApiProperty({})
-  readonly educationalHistory?: string;
-
-  @IsOptional()
-  @ApiProperty({})
-  readonly healthInfo?: string;
-
-  @IsOptional()
-  @ApiProperty({})
-  readonly family?: string;
-
-  @IsOptional()
-  @ApiProperty({})
-  readonly identification?: string;
-
-  @IsOptional()
-  @ApiProperty({})
-  readonly id_number?: string;
-
-  @IsOptional()
-  @ApiProperty({})
-  readonly issue_date?: string;
-
-  @IsOptional()
-  @ApiProperty({})
-  readonly expiry_date?: string;
-
-  @IsOptional()
-  @ApiProperty({})
-  readonly stateOfResidence?: string;
-
-  @IsOptional()
-  @ApiProperty({})
-  readonly lgaOfResidence?: string;
+  readonly membership_status?: string;
 }
 
 export class UpdateUserRoleDto {

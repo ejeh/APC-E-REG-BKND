@@ -110,7 +110,7 @@ let IdcardController = class IdcardController {
             }
             const date = new Date(user.DOB);
             const formattedDOB = date.toISOString().split('T')[0];
-            const qrCodeData = `Name: ${user.firstname} ${user.middlename} ${user.lastname} | BIN: ${card.bin} | DOB: ${formattedDOB} | Sex: ${user.gender}`;
+            const qrCodeData = `Name: ${user.firstname} ${user.middlename} ${user.lastname} | BIN: ${card.cardNo} | DOB: ${formattedDOB} | Sex: ${user.gender}`;
             const qrCodeUrl = await this.generateQrCode(qrCodeData);
             card.qrCodeUrl = qrCodeUrl;
             const htmlTemplate = await this.loadHtmlTemplate('card-template.html');

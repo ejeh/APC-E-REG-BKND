@@ -40,10 +40,7 @@ let UsersService = class UsersService {
                 role,
                 origin,
                 password: await (0, auth_1.hashPassword)(password),
-                activationToken: (0, uuid_1.v4)(),
-                activationExpires: Date.now() + config_1.default.auth.activationExpireInMs,
             });
-            this.userMailer.sendActivationMail(user.email, user.id, user.activationToken, origin);
             return user;
         }
         catch (error) {
@@ -64,6 +61,10 @@ let UsersService = class UsersService {
         }
         return user;
     }
+    async findAdminByEmail(email) {
+        const user = await this.userModel.findOne({ email: email.toLowerCase() }, '+password');
+        return user;
+    }
     async activate(userId, activationToken) {
         const user = await this.userModel
             .findOneAndUpdate({
@@ -81,14 +82,6 @@ let UsersService = class UsersService {
             .gt(Date.now())
             .exec();
         return user;
-    }
-    async resendActivationEmail(email) {
-        const user = await this.userModel.findOne({ email });
-        const activationToken = user.activationToken || Math.random().toString(36).substr(2, 10);
-        user.activationToken = activationToken;
-        await user.save();
-        this.userMailer.sendActivationMail(user.email, user.id, user.activationToken, origin);
-        return { success: true, message: 'Activation email sent successfully' };
     }
     async forgottenPassword(email, origin) {
         const user = await this.userModel.findOneAndUpdate({

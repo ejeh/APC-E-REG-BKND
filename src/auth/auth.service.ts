@@ -48,34 +48,34 @@ export class AuthService {
     };
   }
 
-  async resendActivationEmail(email: string, origin: string) {
-    const user = await this.userModel.findOne({ email });
-    if (!user) {
-      return { success: false, message: 'User not found' };
-    }
+  // async resendActivationEmail(email: string, origin: string) {
+  //   const user = await this.userModel.findOne({ email });
+  //   if (!user) {
+  //     return { success: false, message: 'User not found' };
+  //   }
 
-    if (user.isActive) {
-      return { success: false, message: 'Account is already activated' };
-    }
+  //   if (user.isActive) {
+  //     return { success: false, message: 'Account is already activated' };
+  //   }
 
-    // Generate a new activation token (or reuse the old one)
-    const activationToken = user.activationToken || uuid();
-    user.activationToken = activationToken;
-    (user.activationExpires = new Date(
-      Date.now() + config.auth.activationExpireInMs,
-    )),
-      await user.save();
+  //   // Generate a new activation token (or reuse the old one)
+  //   const activationToken = user.activationToken || uuid();
+  //   user.activationToken = activationToken;
+  //   (user.activationExpires = new Date(
+  //     Date.now() + config.auth.activationExpireInMs,
+  //   )),
+  //     await user.save();
 
-    // Send email with activation link
-    this.userMailer.sendActivationMail(
-      user.email,
-      user.id,
-      user.activationToken,
-      origin,
-    );
+  //   // Send email with activation link
+  //   this.userMailer.sendActivationMail(
+  //     user.email,
+  //     user.id,
+  //     user.activationToken,
+  //     origin,
+  //   );
 
-    return { success: true, message: 'Activation email sent successfully' };
-  }
+  //   return { success: true, message: 'Activation email sent successfully' };
+  // }
 
   async signUpUser(userData: SignUpDto, origin: string, role: string) {
     const user = await this.usersService.create(
@@ -99,11 +99,11 @@ export class AuthService {
 
   // user jwt decode obj
   async login(user?: any) {
-    if (!user.isActive) {
-      throw new UnauthorizedException(
-        'Account is not activated. Please check your email for activation instructions.',
-      );
-    }
+    // if (!user.isActive) {
+    //   throw new UnauthorizedException(
+    //     'Account is not activated. Please check your email for activation instructions.',
+    //   );
+    // }
     return {
       token: this.jwtService.sign(
         { ...user?.getPublicData() },

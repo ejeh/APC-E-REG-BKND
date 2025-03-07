@@ -4,7 +4,7 @@ export default {
   isTest,
   host: process.env.API_HOST,
   port: process.env.PORT,
-  db: process.env.MONGO_CONNECTION_URL,
+  db: process.env.MONGO_URL,
   mail: {
     from: {
       name: process.env.MAIL_FROM_NAME,
@@ -32,7 +32,7 @@ export default {
   },
 };
 
-export const dbUrl = process.env.MONGO_CONNECTION_URL;
+export const dbUrl = process.env.MONGO_URL;
 
 function isDev() {
   return process.env.NODE_ENV === 'development';

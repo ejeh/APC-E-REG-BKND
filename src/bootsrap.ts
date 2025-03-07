@@ -8,6 +8,8 @@ import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 import config from './config';
+import { UsersService } from './users/users.service';
+import { seedAdmin } from './seed-admin';
 
 /**
  * Helper to be used here & in tests.
@@ -34,6 +36,10 @@ export const configureApp = (app: any) => {
 export async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.useStaticAssets(join(__dirname, '..', 'public')); // Serve static files
+
+  // Retrieve the UsersService from the application context
+  const usersService = app.get(UsersService);
+  // await seedAdmin(usersService);
 
   configureApp(app);
 

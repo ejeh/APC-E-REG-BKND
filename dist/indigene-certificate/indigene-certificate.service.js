@@ -241,6 +241,11 @@ let IndigeneCertificateService = class IndigeneCertificateService {
         await fs.promises.writeFile(tempFilePath, pdfBuffer);
         return tempFilePath;
     }
+    async findByIds(ids) {
+        const objectIds = ids.map((id) => new mongoose_2.Types.ObjectId(id));
+        console.log(objectIds);
+        return this.certificateModel.find({ _id: { $in: objectIds } }).exec();
+    }
 };
 exports.IndigeneCertificateService = IndigeneCertificateService;
 exports.IndigeneCertificateService = IndigeneCertificateService = __decorate([
