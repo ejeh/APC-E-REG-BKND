@@ -27,6 +27,10 @@ export class IdCard extends Document {
 
   @ApiProperty()
   @Prop({ type: mongoose.SchemaTypes.String, required: true })
+  middlename: string;
+
+  @ApiProperty()
+  @Prop({ type: mongoose.SchemaTypes.String, required: true })
   lastname: string;
 
   @ApiProperty()
@@ -63,9 +67,22 @@ export class IdCard extends Document {
 
   @Prop({ required: false, default: null })
   qrCodeUrl?: string; // URL for the QR code
+  @ApiProperty()
+  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
+  voters_card_no?: string;
+
+  @ApiProperty()
+  @Prop({ type: mongoose.SchemaTypes.String, required: false, default: null })
+  polling_unit?: string;
+
+  // @Prop({ required: false, default: null })
+  // membership_no?: string; // URL for the QR code
 
   @Prop({ required: false, default: null })
-  cardNo?: string; // URL for the QR code
+  lga?: string; // URL for the QR code
+
+  @Prop({ required: false, default: null })
+  ward?: string; // URL for the QR code
 
   @ApiProperty()
   @Prop({

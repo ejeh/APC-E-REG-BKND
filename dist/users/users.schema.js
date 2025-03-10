@@ -139,6 +139,14 @@ __decorate([
     (0, mongoose_1.Prop)({ required: false, default: null }),
     __metadata("design:type", String)
 ], User.prototype, "membership_status", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: false, default: null }),
+    __metadata("design:type", String)
+], User.prototype, "lga", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: false, default: null }),
+    __metadata("design:type", String)
+], User.prototype, "ward", void 0);
 exports.User = User = __decorate([
     (0, mongoose_1.Schema)({
         timestamps: {

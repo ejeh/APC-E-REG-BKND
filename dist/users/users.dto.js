@@ -71,6 +71,14 @@ __decorate([
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
 ], UserPublicData.prototype, "membership_status", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({}),
+    __metadata("design:type", String)
+], UserPublicData.prototype, "ward", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({}),
+    __metadata("design:type", String)
+], UserPublicData.prototype, "lga", void 0);
 class UpdateProfileDto {
 }
 exports.UpdateProfileDto = UpdateProfileDto;
@@ -129,6 +137,18 @@ __decorate([
     (0, swagger_1.ApiProperty)({}),
     __metadata("design:type", String)
 ], UpdateProfileDto.prototype, "membership_status", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, swagger_1.ApiProperty)({}),
+    __metadata("design:type", String)
+], UpdateProfileDto.prototype, "lga", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsOptional)(),
+    (0, swagger_1.ApiProperty)({}),
+    __metadata("design:type", String)
+], UpdateProfileDto.prototype, "ward", void 0);
 class UpdateUserRoleDto {
 }
 exports.UpdateUserRoleDto = UpdateUserRoleDto;

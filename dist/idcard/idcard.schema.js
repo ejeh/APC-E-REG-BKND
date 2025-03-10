@@ -61,6 +61,11 @@ __decorate([
     (0, swagger_1.ApiProperty)(),
     (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: true }),
     __metadata("design:type", String)
+], IdCard.prototype, "middlename", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: true }),
+    __metadata("design:type", String)
 ], IdCard.prototype, "lastname", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
@@ -107,9 +112,23 @@ __decorate([
     __metadata("design:type", String)
 ], IdCard.prototype, "qrCodeUrl", void 0);
 __decorate([
+    (0, swagger_1.ApiProperty)(),
+    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
+    __metadata("design:type", String)
+], IdCard.prototype, "voters_card_no", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)(),
+    (0, mongoose_1.Prop)({ type: mongoose.SchemaTypes.String, required: false, default: null }),
+    __metadata("design:type", String)
+], IdCard.prototype, "polling_unit", void 0);
+__decorate([
     (0, mongoose_1.Prop)({ required: false, default: null }),
     __metadata("design:type", String)
-], IdCard.prototype, "cardNo", void 0);
+], IdCard.prototype, "lga", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ required: false, default: null }),
+    __metadata("design:type", String)
+], IdCard.prototype, "ward", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)(),
     (0, mongoose_1.Prop)({

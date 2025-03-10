@@ -130,7 +130,7 @@ let IdcardService = class IdcardService {
         await page.setContent(html, { waitUntil: 'networkidle0' });
         const pdfBuffer = await page.pdf({
             width: '85.6mm',
-            height: '54mm',
+            height: '138mm',
             printBackground: true,
             margin: { top: '0px', right: '0px', bottom: '0px', left: '0px' },
             preferCSSPageSize: true,

@@ -105,6 +105,12 @@ export class User {
 
   @Prop({ required: false, default: null })
   membership_status?: string; // URL for the QR code
+
+  @Prop({ required: false, default: null })
+  lga?: string; // URL for the QR code
+
+  @Prop({ required: false, default: null })
+  ward?: string; // URL for the QR code
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

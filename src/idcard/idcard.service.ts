@@ -123,7 +123,7 @@ export class IdcardService {
 
     const pdfBuffer = await page.pdf({
       width: '85.6mm', // Exact width
-      height: '54mm', // Exact height
+      height: '138mm', // Exact height
       printBackground: true,
       margin: { top: '0px', right: '0px', bottom: '0px', left: '0px' },
       preferCSSPageSize: true, // Uses CSS width and height

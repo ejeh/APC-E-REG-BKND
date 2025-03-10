@@ -43,6 +43,12 @@ export class UserPublicData {
 
   @ApiProperty({})
   membership_status: string;
+
+  @ApiProperty({})
+  ward: string;
+
+  @ApiProperty({})
+  lga: string;
 }
 
 export class UpdateProfileDto {
@@ -91,6 +97,16 @@ export class UpdateProfileDto {
   @IsOptional()
   @ApiProperty({})
   readonly membership_status?: string;
+
+  @IsString()
+  @IsOptional()
+  @ApiProperty({})
+  readonly lga?: string;
+
+  @IsString()
+  @IsOptional()
+  @ApiProperty({})
+  readonly ward?: string;
 }
 
 export class UpdateUserRoleDto {

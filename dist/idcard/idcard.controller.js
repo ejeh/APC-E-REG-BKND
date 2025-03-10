@@ -110,7 +110,7 @@ let IdcardController = class IdcardController {
             }
             const date = new Date(user.DOB);
             const formattedDOB = date.toISOString().split('T')[0];
-            const qrCodeData = `Name: ${user.firstname} ${user.middlename} ${user.lastname} | BIN: ${card.cardNo} | DOB: ${formattedDOB} | Sex: ${user.gender}`;
+            const qrCodeData = `Name: ${user.firstname} ${user.middlename} ${user.lastname} | BIN: ${card.voters_card_no} | DOB: ${formattedDOB} | Sex: ${user.gender}`;
             const qrCodeUrl = await this.generateQrCode(qrCodeData);
             card.qrCodeUrl = qrCodeUrl;
             const htmlTemplate = await this.loadHtmlTemplate('card-template.html');
@@ -156,7 +156,7 @@ let IdcardController = class IdcardController {
             .replace(/{{name}}/g, user.firstname + ' ' + user.middlename)
             .replace(/{{surname}}/g, data.lastname)
             .replace(/{{dob}}/g, formattedDOB)
-            .replace(/{{bin}}/g, data.bin)
+            .replace(/{{membership_no}}/g, data.membership_no)
             .replace(/{{passportPhoto}}/g, user.passportPhoto)
             .replace(/{{qrCodeUrl}}/g, data.qrCodeUrl)
             .replace(/{{issueDate}}/g, formattedDateOfIssue)

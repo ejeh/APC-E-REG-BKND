@@ -26,6 +26,8 @@ export declare class User {
     reg_area?: string;
     membership_no?: string;
     membership_status?: string;
+    lga?: string;
+    ward?: string;
 }
 export declare const UserSchema: mongoose.Schema<User, mongoose.Model<User, any, any, any, mongoose.Document<unknown, any, User> & User & {
     _id: mongoose.Types.ObjectId;

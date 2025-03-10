@@ -13,6 +13,8 @@ export declare class UserPublicData {
     polling_unit: string;
     reg_area: string;
     membership_status: string;
+    ward: string;
+    lga: string;
 }
 export declare class UpdateProfileDto {
     readonly passportPhoto?: string;
@@ -25,6 +27,8 @@ export declare class UpdateProfileDto {
     readonly polling_unit?: string;
     readonly voters_card_no?: string;
     readonly membership_status?: string;
+    readonly lga?: string;
+    readonly ward?: string;
 }
 export declare class UpdateUserRoleDto {
     role: string;
